@@ -2,6 +2,17 @@ import altair as alt
 import numpy as np
 import pandas as pd
 import streamlit as st
+import requests
+
+API_URL = "https://sergjey-flowiseai.hf.space/api/v1/prediction/37c98635-032f-4121-ae63-16268df30d3d"
+
+def query(payload):
+    response = requests.post(API_URL, json=payload)
+    return response.json()
+    
+output = query({
+    "question": "Hey, how are you?",
+})
 
 """
 # Welcome to Streamlit!
